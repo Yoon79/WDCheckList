@@ -30,7 +30,9 @@ export default function App() {
   };
   const loadToDos = async () => {
     const s = await AsyncStorage.getItem(STORAGE_KEY);
-    setToDos(JSON.parse(s));
+    if (s) {
+      setToDos(JSON.parse(s));
+    }
   };
 
   const addToDo = async () => {
@@ -59,7 +61,6 @@ export default function App() {
   };
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
       <View style={styles.header}>
         <TouchableOpacity onPress={todo}>
@@ -88,7 +89,7 @@ export default function App() {
         onChangeText={onChageText}
         returnKeyType="done"
         value={text}
-        placeholder={todoing ? "Add a To Do XD" : "Add more"}
+        placeholder={todoing ? "Add a To Do" : "Add more"}
         style={styles.input}
       />
       <ScrollView>
