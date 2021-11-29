@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Text, TextInput, View, Button } from "react-native";
 
-function Login({ navigation, route }) {
+export default function Login({ navigation, route }) {
   React.useEffect(() => {
     if (route.params?.post) {
       // Post updated, do something with `route.params.post`
