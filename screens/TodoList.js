@@ -24,8 +24,8 @@ export default function TodoList() {
   }, []);
   const myTodo = () => setTodoing(false);
   const todo = () => setTodoing(true);
-  const onChageText = (payload) => setText(payload);
-  const saveToDos = async (toSave) => {
+  const onChageText = payload => setText(payload);
+  const saveToDos = async toSave => {
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
   };
   const loadToDos = async () => {
@@ -44,7 +44,7 @@ export default function TodoList() {
     await saveToDos(newToDos);
     setText("");
   };
-  const deleteToDo = (key) => {
+  const deleteToDo = key => {
     Alert.alert("Delete To Do", "Are you sure?", [
       { text: "Cancle" },
       {
@@ -93,7 +93,7 @@ export default function TodoList() {
         style={styles.input}
       />
       <ScrollView>
-        {Object.keys(toDos).map((key) =>
+        {Object.keys(toDos).map(key =>
           toDos[key].todoing === todoing ? (
             <View style={styles.toDo} key={key}>
               <Text style={styles.toDoText}>{toDos[key].text}</Text>

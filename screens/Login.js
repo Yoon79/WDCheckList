@@ -35,7 +35,10 @@ const Login = ({ navigation, route }) => {
             title="Login"
             onPress={() => navigation.navigate("TodoList")}
           />
-          <Button title="SignUp" onPress={() => navigation.navigate("")} />
+          <Button
+            title="SignUp"
+            onPress={() => navigation.navigate("SignUp")}
+          />
           <Button
             title="Press me"
             color="#f194ff"
