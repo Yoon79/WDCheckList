@@ -2,7 +2,7 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./screens/Login.js";
-import CreatePostScreen from "./screens/TodoList.js";
+import TodoList from "./screens/TodoList.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,9 +13,18 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={Login}
-          options={{ title: "TO DO" }}
+          options={{
+            title: "Just Do it",
+            headerStyle: {
+              backgroundColor: "#f4511e",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
         />
-        <Stack.Screen name="CreatePost" component={CreatePostScreen} />
+        <Stack.Screen name="TodoList" component={TodoList} />
       </Stack.Navigator>
     </NavigationContainer>
   );
